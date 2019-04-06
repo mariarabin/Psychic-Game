@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <title>Psychic Game</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <h1>The Psychic Game!</h1>
+    <h2 id="press">Pls. press any key to start</h2>
+    <button id="letter" onclick="letterRev()">Guess what letter am I thinking of</button>
+    <p>Note: Pressing above button will show the letter & refresh the page</p>
+    <p>Your Guesses so far: <span id="guesses"></span></p>
+    <p>No. of Guesses Left: <span id="guessesLeft">3</span></p>
+    <p>Wins: <span id="wins">0</span></p>
+    <p>Losses: <span id="losses">0</span></p>
+
+
+    <script>
+
+        //VARIABLES
+        var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var comp = options[Math.floor(Math.random() * options.length)];
+
+
+        var guess = [];
+        var numGuesses = 3;
+        var wins = 0;
+        var losses = 0;
+
+
+        //guessLetter.textContent = "Maria";
+
+
+        //FUNCTIONS
+        //get comp
+        function letterRev() {
+            alert("End of Game")
+            alert("Pls. click ok and refresh screen to start again.")
+            document.getElementById("letter").innerHTML = comp;
+            document.getElementById("guessesLeft").innerHTML = "0";
+            document.getElementById("guesses").innerHTML = "None";
+            document.getElementById("wins").innerHTML = "0";
+            document.getElementById("losses").innerHTML = "1";
+        }
+
+
+
+
+        //MAIN PROCESS
+
+
+        document.onkeyup = function (event) {
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            if (userGuess != comp) {
+                numGuesses--;
+                guess.push(userGuess);
+            }
+            if (numGuesses === 0) {
+                losses++;
+                //alert("You Lose");
+            };
+
+            if (userGuess === comp) {
+                wins++;
+                document.getElementById("wins").innerHTML = wins;
+                //alert("Winner");
+                guess.push(userGuess);
+                numGuesses--;
+            };
+
+
+
+
+
+            if (numGuesses < 0) {
+                return;
+                alert("End Game. Refresh");
+            }
+
+
+
+
+
+
+
+            document.getElementById("losses").innerHTML = losses;
+            document.getElementById("guessesLeft").innerHTML = numGuesses;
+            document.getElementById("guesses").innerHTML = guess;
+
+            //document.getElementById("clear").on("click", function () {
+            //  document.getElementById("container").empty();
+
+
+
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
