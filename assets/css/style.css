@@ -1,15 +1,40 @@
 html {
-    background: white);
+    background: white;
     position: fixed;
     width: auto;
+    background: url(../images/6361.jpg);
     
 }
 
 body {
     width: auto;
-    
     padding: 50px;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-left: 20%;
-    background: url(../images/Screen\ Shot\ 2019-04-05\ at\ 11.29.33\ PM.png)
+    background: url(../images/Screen\ Shot\ 2019-04-05\ at\ 11.29.33\ PM.png);
+    position: relative;
+}
+
+h1{
+    color: gold;
+    font-family: 'serif', Times, 'Times New Roman', Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+h2, h3, h4{
+    color: yellowgreen;
+    font-family: 'serif', Times, 'Times New Roman', Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+p{
+    color: goldenrod;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px;
+    margin-bottom: 20px;
+    
 }

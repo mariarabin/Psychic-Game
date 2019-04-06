@@ -14,15 +14,20 @@
 
 <body>
     <div class="container"></div>
-    <h1>The Psychic Game!</h1>
-    <a href="http://www.vectorstock.com">Background by vectorstock.com</a>
-    <h2 id="press">Pls. press any key to start</h2>
-    <button id="letter" onclick="letterRev()">Guess what letter am I thinking of </button>&nbsp;<span id="valueguess">?</span>
-    <p>Note: Pressing above button will show the letter & refresh the page</p>
+    <div class="row"></div>
+    <div class="col-md-12"></div>
+    <h1 style="font-weight: bold" ;>The Psychic Game!</h1>
+    <a href="http://www.vectorstock.com">Backgrounds by vectorstock.com </a>
+    <a href="http://www.freepik.com">and rawpixel.com / Freepik</a>
+    <h2 id="press">Press any key to start</h2>
+    <button id="letter" style="color: yellow; background: blue" onclick="letterRev()">Guess what letter am I thinking
+        of </button>&nbsp;<span id="valueguess" style="color: red" style="font-weight: bold"> ?</span>
+    <p style="font-size: 10px" ;>Note: Pressing above button will show the letter & refresh the page</p>
     <p>Your Guesses so far: <span id="guesses"></span></p>
     <p>No. of Guesses Left: <span id="guessesLeft">3</span></p>
     <p>Wins: <span id="wins">0</span></p>
     <p>Losses: <span id="losses">0</span></p>
+    <br>
 
 
     <script>
