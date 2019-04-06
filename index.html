@@ -16,12 +16,13 @@
     <div class="container"></div>
     <h1>The Psychic Game!</h1>
     <h2 id="press">Pls. press any key to start</h2>
-    <button id="letter" onclick="letterRev()">Guess what letter am I thinking of</button>
+    <button id="letter" onclick="letterRev()">Guess what letter am I thinking of </button>&nbsp;<span id="valueguess">?</span>
     <p>Note: Pressing above button will show the letter & refresh the page</p>
     <p>Your Guesses so far: <span id="guesses"></span></p>
     <p>No. of Guesses Left: <span id="guessesLeft">3</span></p>
     <p>Wins: <span id="wins">0</span></p>
     <p>Losses: <span id="losses">0</span></p>
+
 
 
     <script>
@@ -30,44 +31,69 @@
         var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         var comp = options[Math.floor(Math.random() * options.length)];
 
-
         var guess = [];
         var numGuesses = 3;
         var wins = 0;
         var losses = 0;
 
 
-        //guessLetter.textContent = "Maria";
-
-
         //FUNCTIONS
         //get comp
+
+        function reset() {
+
+            document.getElementById("guessesLeft").innerHTML = 3;
+            document.getElementById("guesses").innerHTML = null;
+            document.getElementById("wins").innerHTML = 0;
+            document.getElementById("losses").innerHTML = 0;
+            document.getElementById("valueguess").innerHTML = "";
+
+            guess = [];
+            losses = 0;
+            wins = 0;
+            numGuesses = 3;
+
+        }
         function letterRev() {
             alert("End of Game")
             alert("Pls. click ok and refresh screen to start again.")
-            document.getElementById("letter").innerHTML = comp;
-            document.getElementById("guessesLeft").innerHTML = "0";
-            document.getElementById("guesses").innerHTML = "None";
-            document.getElementById("wins").innerHTML = "0";
-            document.getElementById("losses").innerHTML = "1";
+            //document.getElementById("letter").innerHTML = comp;
+            document.getElementById("valueguess").innerHTML = comp;
+            document.getElementById("guessesLeft").innerHTML = 0;
+            document.getElementById("guesses").innerHTML = null;
+            document.getElementById("wins").innerHTML = 0;
+            document.getElementById("losses").innerHTML = 1;
         }
-
 
 
 
         //MAIN PROCESS
 
-
         document.onkeyup = function (event) {
             var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            var isAlpha = (/^[a-zA-Z]+$/).test(userGuess);
+
+            if (wins === 1) {
+                return;
+            }
+
+            if (!isAlpha) {
+                return;
+            }
+            //alert("userGuess:" + userGuess + " isAlpha:" + isAlpha);
             if (userGuess != comp) {
                 numGuesses--;
                 guess.push(userGuess);
             }
+
+            //alert("numGuesses:" + numGuesses);
+
             if (numGuesses === 0) {
-                losses++;
+                losses = 1;
                 //alert("You Lose");
             };
+
+            //alert("AFTER losses:" + losses);
 
             if (userGuess === comp) {
                 wins++;
@@ -75,19 +101,14 @@
                 //alert("Winner");
                 guess.push(userGuess);
                 numGuesses--;
+                return;
             };
 
 
-
-
-
             if (numGuesses < 0) {
-                return;
                 alert("End Game. Refresh");
+                return;
             }
-
-
-
 
 
 
@@ -109,5 +130,6 @@
 
     </script>
 </body>
+<button id="res" onclick="reset()">RESET</button>
 
 </html>
