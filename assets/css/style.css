@@ -6,13 +6,19 @@ html {
     
 }
 
+.card {
+    position: relative;
+    margin: 50px 200px;
+
+    
+}
+
 body {
     width: auto;
-    padding: 50px;
-    margin-top: 100px;
-    margin-left: 20%;
-    background: url(../images/Screen\ Shot\ 2019-04-05\ at\ 11.29.33\ PM.png);
+    padding: 10px;
+    background:darkmagenta;
     position: relative;
+
 }
 
 h1{
